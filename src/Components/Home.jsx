@@ -6,7 +6,7 @@ import BooksListing from "@/app/books/page";
 import LibraryHome from "./Homelibrary";
 import { LibraryCategory } from "@/app/bookcategorie/page";
 import PopularBooks from "@/app/popularbooks/page";
-import { LibraryContact } from "@/app/contact/page";
+import { Contact } from "@/app/contact/page";
 
 const Home = () => {
   return (
@@ -16,7 +16,7 @@ const Home = () => {
       <BooksListing />
       <LibraryHome />
      <PopularBooks/>
-      <LibraryContact/>
+     <Contact/>
     </div>
   );
 };

@@ -1,28 +1,36 @@
+"use client";
 import Link from "next/link";
-import { IoLibraryOutline, IoLocationOutline, IoMailOutline, IoOpenOutline } from "react-icons/io5";
+import { 
+  IoLibraryOutline, 
+  IoLocationOutline, 
+  IoMailOutline, 
+  IoOpenOutline, 
+  IoCalendarOutline,
+  IoCallOutline 
+} from "react-icons/io5";
 
 export default function Footer() {
   const feniPolytechnicLink = "https://feni.polytech.gov.bd/";
   const myPortfolio = "https://nhriaz.netlify.app/";
 
   return (
-    <footer className="bg-[#0f172a] text-slate-400 pt-20 pb-10 border-t border-white/5">
+    <footer className="bg-[#0a0a0a] text-slate-400 pt-24 pb-10 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* উপরের মেইন গ্রিড */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        {/* উপরের মেইন সেকশন */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           
           {/* লোগো ও বর্ণনা */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-8">
             <Link href="/" className="flex items-center gap-3 group">
               <div 
-                style={{ backgroundColor: "#FFBB8A" }} 
-                className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-[360deg]"
+                style={{ backgroundColor: "#DFC6B5" }} 
+                className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg transition-all duration-500 group-hover:rotate-[360deg] group-hover:shadow-[#DFC6B5]/20"
               >
-                <IoLibraryOutline className="text-2xl text-[#0f172a]" />
+                <IoLibraryOutline className="text-2xl text-[#0a0a0a]" />
               </div>
               <div className="flex flex-col">
-                <span style={{ color: "#FFBB8A" }} className="text-xl font-black tracking-tight leading-none uppercase">
+                <span style={{ color: "#DFC6B5" }} className="text-xl font-black tracking-tight leading-none uppercase">
                   Campus
                 </span>
                 <span className="text-xl font-black text-white tracking-tight leading-none">
@@ -30,104 +38,95 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-sm leading-relaxed font-light">
-              ফেনি পলিটেকনিক ইনস্টিটিউট লাইব্রেরি শিক্ষার্থীদের জ্ঞান চর্চা এবং
-              গবেষণার জন্য একটি আধুনিক ডিজিটাল প্ল্যাটফর্ম।
+            <p className="text-[15px] leading-relaxed font-light text-slate-500">
+              ফেনি পলিটেকনিক ইনস্টিটিউট লাইব্রেরি শিক্ষার্থীদের জ্ঞান চর্চা এবং 
+              প্রযুক্তিগত গবেষণার জন্য একটি আধুনিক ডিজিটাল প্ল্যাটফর্ম।
             </p>
           </div>
 
-          {/* লিঙ্ক সেকশন ১ */}
+          {/* কুইক লিঙ্কস */}
           <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8 flex items-center gap-2">
-              <span style={{ backgroundColor: "#FFBB8A" }} className="w-2 h-2 rounded-full"></span>
-              ইনস্টিটিউট লিঙ্ক
+            <h3 className="text-white font-bold text-xs uppercase tracking-[0.3em] mb-8 flex items-center gap-2">
+              <span style={{ backgroundColor: "#DFC6B5" }} className="w-1.5 h-1.5 rounded-full"></span>
+              প্রয়োজনীয় লিঙ্ক
             </h3>
             <ul className="space-y-4 text-[15px]">
               <li>
-                <a
-                  href={feniPolytechnicLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors duration-300"
-                >
-                  ফেনি পলিটেকনিক হোম
+                <a href={feniPolytechnicLink} target="_blank" className="hover:text-[#DFC6B5] transition-colors flex items-center gap-2">
+                  ইনস্টিটিউট ওয়েবসাইট <IoOpenOutline className="text-xs" />
                 </a>
               </li>
               <li>
-                <Link href="/books" className="hover:text-white transition-colors duration-300">
-                  লাইব্রেরি কালেকশন
-                </Link>
+                <Link href="/books" className="hover:text-[#DFC6B5] transition-colors">বইয়ের তালিকা</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#DFC6B5] transition-colors">সরাসরি যোগাযোগ</Link>
               </li>
             </ul>
           </div>
 
-          {/* লিঙ্ক সেকশন ২ */}
+          {/* লাইব্রেরি সময়সূচী (ক্যাম্পাসের জন্য গুরুত্বপূর্ণ) */}
           <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8 flex items-center gap-2">
-              <span style={{ backgroundColor: "#FFBB8A" }} className="w-2 h-2 rounded-full"></span>
-              অন্যান্য
+            <h3 className="text-white font-bold text-xs uppercase tracking-[0.3em] mb-8 flex items-center gap-2">
+              <span style={{ backgroundColor: "#DFC6B5" }} className="w-1.5 h-1.5 rounded-full"></span>
+              লাইব্রেরি আওয়ার
             </h3>
-            <ul className="space-y-4 text-[15px]">
-              <li>
-                <Link href="/about-library" className="hover:text-white transition-colors duration-300">
-                  আমাদের সম্পর্কে
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors duration-300">
-                  সরাসরি যোগাযোগ
-                </Link>
-              </li>
-            </ul>
+            <div className="space-y-4 text-[15px]">
+              <div className="flex items-center gap-3">
+                <IoCalendarOutline style={{ color: "#DFC6B5" }} />
+                <span>শনিবার - বৃহস্পতিবার</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-white font-medium pl-7">০৮:০০ AM - ০৫:০০ PM</span>
+              </div>
+              <p className="text-xs text-slate-600 pl-7 italic">সকল সরকারি ছুটির দিনে লাইব্রেরি বন্ধ থাকে।</p>
+            </div>
           </div>
 
-          {/* কন্টাক্ট সেকশন */}
+          {/* কন্টাক্ট ইনফো */}
           <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-[0.2em] mb-8 flex items-center gap-2">
-              <span style={{ backgroundColor: "#FFBB8A" }} className="w-2 h-2 rounded-full"></span>
+            <h3 className="text-white font-bold text-xs uppercase tracking-[0.3em] mb-8 flex items-center gap-2">
+              <span style={{ backgroundColor: "#DFC6B5" }} className="w-1.5 h-1.5 rounded-full"></span>
               যোগাযোগ
             </h3>
             <div className="space-y-5 text-[14px]">
-              <div className="flex items-start gap-4">
-                <IoLocationOutline style={{ color: "#FFBB8A" }} className="text-xl mt-0.5 shrink-0" />
-                <span className="leading-relaxed">
-                  ফেনি পলিটেকনিক ইনস্টিটিউট<br />হাসপাতাল রোড, ফেনি।
-                </span>
+              <div className="flex items-start gap-3">
+                <IoLocationOutline style={{ color: "#DFC6B5" }} className="text-lg shrink-0" />
+                <span>হাসপাতাল রোড, ফেনি।</span>
               </div>
-              <div className="flex items-center gap-4">
-                <IoMailOutline style={{ color: "#FFBB8A" }} className="text-xl shrink-0" />
-                <span>library@feni.polytech.gov.bd</span>
+              <div className="flex items-center gap-3">
+                <IoMailOutline style={{ color: "#DFC6B5" }} className="text-lg shrink-0" />
+                <span className="truncate">library@feni.polytech.gov.bd</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <IoCallOutline style={{ color: "#DFC6B5" }} className="text-lg shrink-0" />
+                <span>+৮৮০ ১২৩৪ ৫৬৭৮৯০</span>
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* নিচের কপিরাইট ও ডেভেলপার সেকশন */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[13px] font-medium tracking-wide">
+        {/* নিচের কপিরাইট পার্ট */}
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-[12px] font-medium tracking-wide text-slate-600">
             © {new Date().getFullYear()}{" "}
-            <span style={{ color: "#FFBB8A" }}>Campus Library</span>. All Rights Reserved.
+            <span className="text-white">Campus Library</span>. All Rights Reserved.
           </p>
 
-          <div className="group flex items-center gap-4 py-2.5 px-6 bg-white/[0.03] rounded-full border border-white/10 transition-all hover:bg-white/[0.06]">
-            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.15em]">
-              Crafted by
+          <div className="group flex items-center gap-4 py-2 px-5 bg-white/[0.02] rounded-2xl border border-white/5 transition-all hover:bg-white/[0.05]">
+            <span className="text-[10px] text-slate-600 font-bold uppercase tracking-widest">
+              Developed by
             </span>
-            <a
-              href={myPortfolio}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              <span className="text-sm font-bold text-white group-hover:text-[#FFBB8A] transition-colors duration-300">
+            <a href={myPortfolio} target="_blank" className="flex items-center gap-2">
+              <span className="text-sm font-bold text-white group-hover:text-[#DFC6B5] transition-colors">
                 Nur Hossain Riaz
               </span>
               <div 
-                style={{ backgroundColor: "#FFBB8A" }} 
-                className="w-6 h-6 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-[360deg]"
+                style={{ backgroundColor: "#DFC6B5" }} 
+                className="w-5 h-5 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-[360deg]"
               >
-                <IoOpenOutline className="text-[12px] text-[#0f172a]" />
+                <IoOpenOutline className="text-[10px] text-black" />
               </div>
             </a>
           </div>

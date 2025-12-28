@@ -21,7 +21,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 bg-slate-900 rounded-[3rem] p-10 md:p-14 text-white relative overflow-hidden flex flex-col justify-between shadow-2xl"
+            className="lg:col-span-5 bg-black rounded-[3rem] p-10 md:p-14 text-white relative overflow-hidden flex flex-col justify-between shadow-2xl"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#a68b7c]/20 blur-[80px] rounded-full"></div>
 
@@ -120,7 +120,7 @@ export default function Contact() {
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-5 bg-[#a68b7c] text-white font-black rounded-2xl shadow-lg shadow-[#a68b7c]/30 flex items-center justify-center gap-3 text-lg hover:bg-slate-900 transition-colors"
+                className="w-full py-5 bg-[#a68b7c] text-white font-black rounded-2xl shadow-lg shadow-[#a68b7c]/30 flex items-center justify-center gap-3 text-lg hover:bg-black transition-colors"
               >
                 বার্তা পাঠান <FiSend className="text-xl" />
               </motion.button>

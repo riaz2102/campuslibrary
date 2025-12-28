@@ -1,14 +1,26 @@
 'use client'
-
 import React, { useState } from "react";
 
-const Hero = () => {
-  // মাউসের পজিশন ট্র্যাক করার জন্য স্টেট
+const Hero = ({ onSearch }) => { 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [searchTerm, setSearchTerm] = useState(""); 
 
   const handleMouseMove = (e) => {
-    // মাউসের পজিশন সেট করা হচ্ছে
     setMousePos({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleSearch = (e) => {
+    if (e) e.preventDefault(); 
+    
+    if (onSearch) {
+      onSearch(searchTerm); // Home.jsx-এ ডাটা পাঠাবে
+
+      // স্মার্ট ট্রিক: সার্চ করার পর অটোমেটিক বইয়ের সেকশনে স্ক্রল করবে
+      window.scrollTo({
+        top: window.innerHeight, // এক স্ক্রিন পরিমাণ নিচে নামবে
+        behavior: "smooth"
+      });
+    }
   };
 
   return (
@@ -16,8 +28,7 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] cursor-default"
     >
-      
-      {/* ১. মাউস ট্র্যাকিং স্পটলাইট (চলমান এলিমেন্ট) */}
+      {/* ১. স্পটলাইট ইফেক্ট */}
       <div 
         className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 opacity-50"
         style={{
@@ -25,7 +36,7 @@ const Hero = () => {
         }}
       ></div>
 
-      {/* ২. ব্যাকগ্রাউন্ড ইমেজ এবং ওভারলে */}
+      {/* ২. ব্যাকগ্রাউন্ড ইমেজ */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070&auto=format&fit=crop"
@@ -38,7 +49,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-20">
         <div className="flex flex-col items-center text-center">
           
-          {/* ৩. প্রিমিয়াম গ্লাস-ব্যাজ */}
+          {/* ব্যাজ */}
           <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-2xl border border-white/10 px-6 py-2 rounded-full mb-10 shadow-lg">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "#DFC6B5" }}></span>
@@ -49,28 +60,30 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* ৪. মেইন টাইটেল */}
+          {/* টাইটেল */}
           <h1 className="text-5xl md:text-8xl font-extrabold text-white mb-8 tracking-tighter leading-[1.2]">
             জ্ঞানের সীমা <br />
             <span 
-              className="italic font-serif transition-all duration-500" 
+              className="italic font-serif transition-all duration-500 inline-block" 
               style={{ 
                 color: "#DFC6B5", 
                 fontWeight: '300',
-                transform: `translate(${(mousePos.x - 500) / 50}px, ${(mousePos.y - 500) / 50}px)` // টেক্সট সামান্য নড়বে
+                transform: `translate(${(mousePos.x - 500) / 50}px, ${(mousePos.y - 500) / 50}px)` 
               }}
             >
               ছাড়িয়ে যান
             </span>
           </h1>
 
-          {/* ৫. সাব-টেক্সট */}
           <p className="text-base md:text-xl text-gray-400 mb-14 max-w-2xl mx-auto leading-relaxed font-light">
-            আপনার ক্যাম্পাসের ডিজিটাল লাইব্রেরি এখন হাতের মুঠোয়। হাজারো বই, রিসার্চ পেপার এবং জার্নালের বিশাল সংগ্রহ নিয়ে আমরা আছি আপনার পাশে।
+            আপনার ক্যাম্পাসের ডিজিটাল লাইব্রেরি এখন হাতের মুঠোয়।
           </p>
 
-          {/* ৬. ক্লিন সার্চ ইন্টারফেস */}
-          <div className="w-full max-w-3xl">
+          {/* সার্চ ইন্টারফেস */}
+          <form 
+            onSubmit={handleSearch}
+            className="w-full max-w-3xl"
+          >
             <div className="flex bg-[#1a1a1a] rounded-[1.5rem] border border-white/10 p-2 shadow-2xl overflow-hidden group">
               <div className="flex items-center pl-6 transition-transform group-focus-within:scale-110">
                 <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,36 +92,34 @@ const Hero = () => {
               </div>
               <input
                 type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="বইয়ের নাম অথবা লেখকের নাম দিয়ে খুঁজুন..."
                 className="w-full px-5 py-5 outline-none text-white text-lg bg-transparent placeholder:text-gray-600 font-light"
               />
               <button
+                type="submit"
                 style={{ backgroundColor: "#DFC6B5" }}
-                className="text-[#0a0a0a] px-10 py-4 rounded-[1.2rem] font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:brightness-110 active:scale-95 shadow-none"
+                className="text-[#0a0a0a] px-10 py-4 rounded-[1.2rem] font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:brightness-110 active:scale-95"
               >
                 অনুসন্ধান
               </button>
             </div>
-          </div>
+          </form>
 
-          {/* ৭. পরিসংখ্যান (Stats) */}
+          {/* স্ট্যাটস */}
           <div className="mt-24 flex flex-wrap justify-center gap-12 md:gap-24">
             {[
-              { num: "৫০,০০০+", txt: "বইয়ের সংগ্রহ" },
+              { num: "১৫,০০০+", txt: "বইয়ের সংগ্রহ" },
               { num: "১২,০০০+", txt: "সক্রিয় পাঠক" },
               { num: "২৪/৭", txt: "অনলাইন সেবা" }
             ].map((item, idx) => (
-              <div 
-                key={idx} 
-                className="flex flex-col items-center transition-transform duration-500"
-                style={{ transform: `translateY(${(mousePos.y - 500) / 80}px)` }} // মাউসের সাথে হালকা নড়াচড়া
-              >
+              <div key={idx} className="flex flex-col items-center">
                 <span className="text-3xl font-bold text-white mb-1">{item.num}</span>
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "#DFC6B5" }}>{item.txt}</span>
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

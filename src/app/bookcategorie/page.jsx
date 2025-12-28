@@ -2,7 +2,8 @@
 import { motion } from 'framer-motion';
 import { books } from '@/data/books'; 
 
-export function LibraryCategory() {
+// লক্ষ্য করুন: এখানে 'export default' যোগ করা হয়েছে
+export default function LibraryCategory() {
   const categoryStats = books.reduce((acc, book) => {
     acc[book.category] = (acc[book.category] || 0) + 1;
     return acc;
@@ -98,7 +99,6 @@ export function LibraryCategory() {
               className="group p-8 bg-white rounded-[2.5rem] shadow-sm border border-slate-100 text-center hover:shadow-xl transition-all duration-500 overflow-hidden"
             >
               <div className="w-24 h-24 mx-auto mb-6 relative">
-                {/* ইমেজ ব্যাকগ্রাউন্ড বক্সে নতুন কালার */}
                 <div 
                   style={{ backgroundColor: "#FFBB8A" }}
                   className="absolute inset-0 opacity-20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500"
@@ -110,9 +110,8 @@ export function LibraryCategory() {
                 />
               </div>
               <h3 className="text-xl font-bold text-slate-800 mb-2">{cat.name}</h3>
-              {/* বইয়ের সংখ্যা ব্যাজে নতুন কালার */}
               <div 
-                style={{ color: "#FFBB8A", borderColor: "#FFBB8A33" }} // 33 মানে হালকা ট্রান্সপারেন্ট
+                style={{ color: "#FFBB8A", borderColor: "#FFBB8A33" }} 
                 className="inline-flex items-center justify-center px-4 py-1 bg-orange-50/30 text-sm font-bold rounded-full border"
               >
                 {cat.count}টি বই

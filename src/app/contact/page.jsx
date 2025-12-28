@@ -2,7 +2,8 @@
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
 
-export function Contact() {
+// এখানে 'export default' যোগ করা হয়েছে
+export default function Contact() {
   return (
     <section className="py-24 bg-[#fcf8f5] overflow-hidden relative">
       {/* Background Decorative Shapes */}
@@ -14,7 +15,7 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           
-          {/* Left Side: Info Card (Slate 900) */}
+          {/* Left Side: Info Card */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -22,7 +23,6 @@ export function Contact() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 bg-slate-900 rounded-[3rem] p-10 md:p-14 text-white relative overflow-hidden flex flex-col justify-between shadow-2xl"
           >
-            {/* Inner Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#a68b7c]/20 blur-[80px] rounded-full"></div>
 
             <div className="relative z-10">
@@ -30,7 +30,7 @@ export function Contact() {
                 চলুন <span className="text-[#e2c7b8]">কথা বলি</span>
               </h2>
               <p className="text-slate-400 text-lg mb-12">
-                লাইব্রেরি সংক্রান্ত যেকোনো প্রয়োজনে আমাদের অভিজ্ঞ টীম আপনাকে সাহায্য করতে প্রস্তুত।
+                লাইব্রেরি সংক্রান্ত যেকোনো প্রয়োজনে আমাদের অভিজ্ঞ টীম আপনাকে সাহায্য করতে প্রস্তুত।
               </p>
 
               <div className="space-y-8">
@@ -66,13 +66,12 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Social Links Placeholder */}
             <div className="relative z-10 mt-16 pt-8 border-t border-white/10 flex gap-4 text-slate-400">
-              <p className="text-sm">অফিস সময়: সকাল ৯টা - বিকাল ৫টা</p>
+              <p className="text-sm">অফিস সময়: সকাল ৯টা - বিকাল ৫টা</p>
             </div>
           </motion.div>
 
-          {/* Right Side: Modern Contact Form */}
+          {/* Right Side: Form */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -101,10 +100,10 @@ export function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-700 ml-1">বিষয়</label>
+                <label className="text-sm font-bold text-slate-700 ml-1">বিষয়</label>
                 <select className="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-[#a68b7c]/50 transition-all outline-none appearance-none">
                   <option>মেম্বারশিপ সংক্রান্ত</option>
-                  <option>বইয়ের অনুরোধ</option>
+                  <option>বইয়ের অনুরোধ</option>
                   <option>অন্যান্য</option>
                 </select>
               </div>
@@ -127,7 +126,6 @@ export function Contact() {
               </motion.button>
             </form>
           </motion.div>
-
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { books } from '@/data/books'; 
 import Link from 'next/link';
 
-export function PopularBooks() {
+export default function PopularBooks() { // এখানে default যোগ করা হয়েছে
   // ডাটা থেকে প্রথম ৬টি বই নেওয়া হচ্ছে
   const popularSelection = books.slice(0, 6); 
 
@@ -55,11 +55,10 @@ export function PopularBooks() {
                   </div>
                 </div>
 
-                {/* কার্ডের ভেতরের বাটন - হোভার কালার আপডেট করা হয়েছে */}
+                {/* কার্ডের ভেতরের বাটন */}
                 <div className="mt-auto">
                   <Link 
                     href={`/books/${book.id}`} 
-                    style={{ '--hover-bg': '#FFBB8A' }}
                     className="w-full flex items-center justify-center gap-2 py-3 bg-white border-2 border-slate-200 text-slate-800 font-bold rounded-xl hover:bg-[#FFBB8A] hover:text-white hover:border-[#FFBB8A] transition-all duration-300 group-button"
                   >
                     বিস্তারিত দেখুন

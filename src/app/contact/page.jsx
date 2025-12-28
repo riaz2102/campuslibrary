@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
 
-export function LibraryContact() {
+export function Contact() {
   return (
     <section className="py-24 bg-[#fcf8f5] overflow-hidden relative">
       {/* Background Decorative Shapes */}

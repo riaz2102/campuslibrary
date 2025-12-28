@@ -30,8 +30,8 @@ const Navbar = () => {
             { name: "হোম", path: "/" },
             { name: "লাইব্রেরি সম্পর্কে", path: "/about-library" },
             { name: "বইয়ের তালিকা", path: "/books" },
-            { name: "জনপ্রিয়", path: "/popular-books" },
-            { name: "যোগাযোগ", path: "/LibraryContact" },
+            { name: "জনপ্রিয় বইসমূহ", path: "/popularbooks" },
+            { name: "যোগাযোগ", path: "/contact" },
           ].map((item) => (
             <Link 
               key={item.name}
@@ -90,8 +90,8 @@ const Navbar = () => {
           <Link href="/" className="font-bold text-slate-700 text-lg hover:text-[#FFBB8A]">হোম</Link>
           <Link href="/about-library" className="font-bold text-slate-700 text-lg hover:text-[#FFBB8A]">লাইব্রেরি সম্পর্কে</Link>
           <Link href="/books" className="font-bold text-slate-700 text-lg hover:text-[#FFBB8A]">বইয়ের তালিকা</Link>
-          <Link href="/popular-books" className="font-bold text-slate-700 text-lg hover:text-[#FFBB8A]">জনপ্রিয়</Link>
-          <Link href="/LibraryContact" className="font-bold text-slate-700 text-lg hover:text-[#FFBB8A]">যোগাযোগ</Link>
+          <Link href="/popularbooks" className="font-bold text-slate-700 text-lg hover:text-[#FFBB8A]">জনপ্রিয় বইসমূহ</Link>
+          <Link href="/contact" className="font-bold text-slate-700 text-lg hover:text-[#FFBB8A]">যোগাযোগ</Link>
           <div className="flex flex-col gap-3 pt-4">
             <button className="w-full py-3 rounded-xl font-bold text-white" style={{ backgroundColor: "#FFBB8A" }}>লগইন</button>
             <button className="w-full py-3 rounded-xl font-bold border-2 text-slate-600" style={{ borderColor: "#FFBB8A" }}>রেজিস্টার</button>
